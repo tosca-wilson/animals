@@ -5,10 +5,10 @@ import { connect } from 'react-redux'
 
 class Animals extends React.Component {
     // constructor(props) {
-        // super(props)
-        // this.state = {
-        //     animals: {}
-        // }
+    // super(props)
+    // this.state = {
+    //     animals: {}
+    // }
     // }
 
     componentDidMount() {
@@ -25,16 +25,15 @@ class Animals extends React.Component {
             <>
                 <h1>List of animals</h1>
                 {animalsInfo.map((animal) => {
-                    console.log(animal.nouns)
+                    // console.log(animal.nouns)
                     return (
                         <ul>
-                            <li>{animal.name}</li>
-                            <li>{animal.nouns}</li>
+                            <h3>{animal.name}</h3>
+                            {animal.nouns.map((noun) => <li>{noun}</li>)}
                         </ul>
                     )
                 })}
             </>
-
         )
     }
 }
