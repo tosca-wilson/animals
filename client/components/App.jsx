@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Animals from './Animals'
+import Form from './Form'
 import { fetchAnimals } from '../actions/animals'
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <div>
       <Animals />
+      <Form />
       </div>
     )
   }

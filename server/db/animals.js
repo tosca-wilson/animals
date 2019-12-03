@@ -12,6 +12,17 @@ function getAnimals(db = connection) {
     })
 }
 
+function addAnimal (newAnimal, db=connection) {
+  console.log('hello')
+  return db('animals')
+  .insert({
+    name: newAnimal.name,
+    nouns: newAnimal.nouns
+  })
+  .then(newId => newId)
+}
+
 module.exports = {
   getAnimals,
+  addAnimal
 }

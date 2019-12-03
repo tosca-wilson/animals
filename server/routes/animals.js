@@ -16,4 +16,16 @@ router.get('/', (request, response) => {
     })
 })
 
+router.post('/', (request, response) => {
+  const newAnimal = request.body
+  db.addAnimal(newAnimal)
+  .then(id => {
+    response.json({id:id})
+  })
+  .catch(err => {
+    console.log(err)
+    res.status(500).json({ message: 'Something is broken' })
+  })
+})
+
 module.exports = router
