@@ -28,4 +28,13 @@ router.post('/', (request, response) => {
   })
 })
 
+router.delete('/:id', (request, response) => {
+  const animalId = request.params.id
+
+  db.deleteAnimal(animalId)
+  .then(animal => {
+    response.json(animal)
+  })
+})
+
 module.exports = router

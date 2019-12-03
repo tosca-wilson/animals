@@ -6,6 +6,7 @@ function reducer(state = initialState, action) {
             return action.animals
         case 'ADD_ANIMAL':
             return [...state, action.newAnimal]
+        
         default:
             return state
     }

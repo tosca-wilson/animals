@@ -18,3 +18,10 @@ export function postApiAnimal(animal) {
     .then(res => res.body)
 }
 
+export function deleteApiAnimal(id) {
+    return request.del(`/api/animals/${id}`)
+    .then(res => {
+        return res.body
+    })
+}
+

@@ -13,7 +13,6 @@ function getAnimals(db = connection) {
 }
 
 function addAnimal (newAnimal, db=connection) {
-  console.log('hello')
   return db('animals')
   .insert({
     name: newAnimal.name,
@@ -22,7 +21,14 @@ function addAnimal (newAnimal, db=connection) {
   .then(newId => newId)
 }
 
+function deleteAnimal (id, db=connection) {
+  return db('animals')
+  .where('id', id)
+  .delete()
+}
+
 module.exports = {
   getAnimals,
-  addAnimal
+  addAnimal,
+  deleteAnimal, 
 }

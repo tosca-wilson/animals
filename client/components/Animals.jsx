@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { deleteAnimal } from '../actions/animals'
 // import { fetchAnimals } from '../actions/animals'
 
 
@@ -28,7 +29,7 @@ class Animals extends React.Component {
                     // console.log(animal.nouns)
                     return (
                         <ul>
-                            <h3>{animal.name}</h3>
+                            <h3>{animal.name}<button onClick={() => this.props.dispatch(deleteAnimal(animal))}>Del</button></h3>
                             {animal.nouns.map((noun) => <li>{noun}</li>)}
                         </ul>
                     )

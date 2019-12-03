@@ -1,4 +1,4 @@
-import { getApiAnimals, postApiAnimal } from '../apis/apiFetchAnimals'
+import { getApiAnimals, postApiAnimal, deleteApiAnimal } from '../apis/apiFetchAnimals'
 
 export const displayAnimals = (animals) => {
     return {
@@ -24,11 +24,26 @@ export function fetchAnimals () {
 // }
 
 export function addAnimal (newAnimal) {
-    // console.log(newAnimal)
     return (dispatch) => {
         postApiAnimal(newAnimal)
         .then(id => {
         dispatch(fetchAnimals())
+        })
+    }
+}
+
+export const delAnimal = (animal) => {
+    return {
+        type: 'DEL_ANIMAL',
+        animal: animal
+    }
+}
+
+export function deleteAnimal (animal) {
+    return (dispatch) => {
+        deleteApiAnimal(animal.id)
+        .then(() => {
+            dispatch(fetchAnimals())
         })
     }
 }
